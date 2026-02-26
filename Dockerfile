@@ -1,23 +1,23 @@
-# Use official Tomcat 9 with Java 21 pre-installed
-FROM tomcat:9.0.82-jdk21-temurin
+                                           # Use official Tomcat 9 with Java 21 pre-installed
+                                           FROM tomcat:9.0.82-jdk21-temurin
 
-# Set maintainer label (optional but good practice)
-LABEL maintainer="satyam.pandely@example.com"
+                                           # Set maintainer label (optional but good practice)
+                                           LABEL maintainer="shivraj.akuskar@example.com"
 
-# Remove default ROOT app (optional, keeps container clean)
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
+                                           # Remove default ROOT app (optional, keeps container clean)
+                                           RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
-# Create a user for running the application
-RUN useradd -m bookmyplan
+                                           # Create a user for running the application
+                                           RUN useradd -m easemytrip
 
-# Copy your JAR file into the webapps directory
-COPY ./target/easymytrip*.jar /usr/local/tomcat/webapps/
+                                           # Copy your JAR file into the webapps directory
+                                           COPY ./target/easemytrip*.jar /usr/local/tomcat/webapps/
 
-# Expose the default Tomcat port
-EXPOSE 8080
+                                           # Expose the default Tomcat port
+                                           EXPOSE 8080
 
-# Set the user to 'mbooking-ms' for security
-USER bookmyplan
+                                           # Set the user to 'easemytrip' for security
+                                           USER easemytrip
 
-# Default command to run Tomcat
-CMD ["catalina.sh", "run"]
+                                           # Default command to run Tomcat
+                                           CMD ["catalina.sh", "run"]
