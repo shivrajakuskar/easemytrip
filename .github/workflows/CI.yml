@@ -50,7 +50,8 @@ jobs:
             echo "✅ Maven $MAVEN_VERSION already installed"
           else
             echo "⬇️ Installing Maven $MAVEN_VERSION..."
-            sudo dnf install -y wget tar
+            sudo apt update
+            sudo apt install -y maven
 
             sudo mkdir -p /opt/maven
             cd /tmp
